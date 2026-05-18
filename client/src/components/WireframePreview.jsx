@@ -49,9 +49,9 @@ export default function WireframePreview({ layout }) {
                 height: `${node.nh * 100}%`,
                 background: getColorForType(node.type),
                 border: `1px solid ${getBorderColorForType(node.type)}`,
-                borderRadius: node.style?.borderRadius || '0',
-                fontSize: node.style?.fontSize ? `${node.style.fontSize / artboard.width * 500 * 0.4}px` : '10px',
-                color: node.style?.color || '#374151',
+                borderRadius: node.style?.visual?.borderRadius || '0',
+                fontSize: node.style?.visual?.fontSize ? `${node.style.visual.fontSize / artboard.width * 500 * 0.4}px` : '10px',
+                color: node.style?.visual?.color?.value || '#374151',
                 fontWeight: node.type === 'text' ? 'bold' : 'normal',
                 padding: '4px'
               }}
