@@ -32,6 +32,7 @@ export default function WireframePreview({ layout }) {
           maxWidth: '500px',
           paddingBottom: `${aspectRatio * 100}%`,
           background: artboard.data?.backgroundColor || '#ffffff',
+          containerType: 'inline-size'
         }}
       >
         {artboard.children.map((id) => {
@@ -47,17 +48,27 @@ export default function WireframePreview({ layout }) {
                 top: `${node.ny * 100}%`,
                 width: `${node.nw * 100}%`,
                 height: `${node.nh * 100}%`,
-                background: getColorForType(node.type),
+                backgroundColor: node.type !== 'image' ? getColorForType(node.type) : 'transparent',
+                backgroundImage: node.type === 'image' && node.data?.sourceUrl ? `url(${node.data.sourceUrl})` : 'none',
+                backgroundSize: node.data?.fit || 'cover',
+                backgroundPosition: 'center',
                 border: `1px solid ${getBorderColorForType(node.type)}`,
-                borderRadius: node.style?.visual?.borderRadius || '0',
-                fontSize: node.style?.visual?.fontSize ? `${node.style.visual.fontSize / artboard.width * 500 * 0.4}px` : '10px',
+                borderRadius: node.style?.visual?.borderRadius || (node.type === 'shape' && node.data?.shapeType === 'circle' ? '50%' : '0'),
+                fontSize: node.style?.visual?.fontSize ? `calc(${node.style.visual.fontSize} / ${artboard.width} * 100cqw)` : '10px',
                 color: node.style?.visual?.color?.value || '#374151',
                 fontWeight: node.type === 'text' ? 'bold' : 'normal',
-                padding: '4px'
+                padding: '4px',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center'
               }}
               title={node.name}
             >
-              {node.data?.content || node.name}
+              {node.type === 'text' && (node.data?.content || node.name)}
+              {node.type !== 'text' && node.type !== 'image' && node.name}
             </div>
           );
         })}
