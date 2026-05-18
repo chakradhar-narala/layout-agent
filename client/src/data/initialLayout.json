@@ -1,0 +1,60 @@
+{
+  "rootNodes": ["artboard-1"],
+  "nodes": {
+    "artboard-1": {
+      "id": "artboard-1",
+      "type": "artboard",
+      "name": "Artboard",
+      "width": 1080,
+      "height": 1080,
+      "children": ["bg-1", "product-1", "headline-1", "badge-1", "cta-1"],
+      "data": { "backgroundColor": "#f8f9fa" },
+      "style": {}
+    },
+    "bg-1": {
+      "id": "bg-1",
+      "type": "image",
+      "name": "Background.png",
+      "x": 0, "y": 0, "width": 1080, "height": 1080,
+      "nx": 0, "ny": 0, "nw": 1, "nh": 1,
+      "data": { "content": "Background Image" },
+      "style": {}
+    },
+    "product-1": {
+      "id": "product-1",
+      "type": "image",
+      "name": "Product.png",
+      "x": 240, "y": 300, "width": 600, "height": 600,
+      "nx": 0.2222, "ny": 0.2777, "nw": 0.5555, "nh": 0.5555,
+      "data": { "content": "Product Image" },
+      "style": {}
+    },
+    "headline-1": {
+      "id": "headline-1",
+      "type": "text",
+      "name": "Headline",
+      "x": 100, "y": 100, "width": 880, "height": 150,
+      "nx": 0.0925, "ny": 0.0925, "nw": 0.8148, "nh": 0.1388,
+      "data": { "content": "Luxury Comfort, Surprisingly Attainable" },
+      "style": { "fontSize": 64, "color": "#111827" }
+    },
+    "badge-1": {
+      "id": "badge-1",
+      "type": "shape",
+      "name": "Discount Badge",
+      "x": 800, "y": 200, "width": 150, "height": 150,
+      "nx": 0.7407, "ny": 0.1851, "nw": 0.1388, "nh": 0.1388,
+      "data": { "content": "20% OFF" },
+      "style": { "backgroundColor": "#ef4444", "borderRadius": "50%" }
+    },
+    "cta-1": {
+      "id": "cta-1",
+      "type": "text",
+      "name": "CTA",
+      "x": 340, "y": 950, "width": 400, "height": 80,
+      "nx": 0.3148, "ny": 0.8796, "nw": 0.3703, "nh": 0.0740,
+      "data": { "content": "Limited time offer" },
+      "style": { "fontSize": 32, "color": "#b91c1c" }
+    }
+  }
+}
